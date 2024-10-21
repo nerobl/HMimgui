@@ -235,9 +235,9 @@ CODE
 
  HOW TO UPDATE TO A NEWER VERSION OF DEAR IMGUI
  ----------------------------------------------
- - Update submodule or copy/overwrite every file.
+ - Update submodule or copy/overwriteFile every file.
  - About imconfig.h:
-   - You may modify your copy of imconfig.h, in this case don't overwrite it.
+   - You may modify your copy of imconfig.h, in this case don't overwriteFile it.
    - or you may locally branch to modify imconfig.h and merge/rebase latest.
    - or you may '#define IMGUI_USER_CONFIG "my_config_file.h"' globally from your build system to
      specify a custom path for your imconfig.h file and instead not have to modify the default one.
@@ -5573,7 +5573,7 @@ bool ImGui::IsItemEdited()
 
 // Allow next item to be overlapped by subsequent items.
 // This works by requiring HoveredId to match for two subsequent frames,
-// so if a following items overwrite it our interactions will naturally be disabled.
+// so if a following items overwriteFile it our interactions will naturally be disabled.
 void ImGui::SetNextItemAllowOverlap()
 {
     ImGuiContext& g = *GImGui;
@@ -9776,7 +9776,7 @@ void ImGui::UpdateInputEvents(bool trickle_fast_inputs)
         }
         else if (e->Type == ImGuiInputEventType_Focus)
         {
-            // We intentionally overwrite this and process in NewFrame(), in order to give a chance
+            // We intentionally overwriteFile this and process in NewFrame(), in order to give a chance
             // to multi-viewports backends to queue AddFocusEvent(false) + AddFocusEvent(true) in same frame.
             const bool focus_lost = !e->AppFocused.Focused;
             io.AppFocusLost = focus_lost;
